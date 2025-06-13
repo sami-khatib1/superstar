@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>סופרסטאר - סופרמרקט</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1>סופרסטאר</h1>
+    <div class="container header-container">
+      <h1 class="logo">סופרסטאר</h1>
       <nav>
-        <ul>
+        <ul class="nav-links">
           <li><a href="#about">אודות</a></li>
           <li><a href="#contact">צור קשר</a></li>
         </ul>
@@ -20,24 +21,39 @@
   </header>
 
   <main>
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-box">
+          <h2>חוויית קנייה שונה - במחירים משתלמים!</h2>
+          <p>מצטרפים למהפכת הקניות של סופרסטאר ומגלים עולם חדש של שירות, איכות ונוחות.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="about" class="about-section">
       <div class="container">
-        <h2>ברוכים הבאים לסופרסטאר!</h2>
-        <p>
-          סופרסטאר הוא סופרמרקט חדשני ומתקדם שמציע חוויית קנייה יוצאת דופן לכל המשפחה. אנו מתחייבים לשירות איכותי, מבצעים משתלמים ומגוון רחב של מוצרים במחירים מעולים.
-        </p>
-        <p>
-          אנו כאן בשבילכם, עם סניפים נוחים ונגישים, וצוות מקצועי שיעזור לכם למצוא בדיוק את מה שאתם צריכים.
-        </p>
+        <div class="info-box">
+          <h2>מי אנחנו?</h2>
+          <p>
+            סופרסטאר הוא סופרמרקט חדשני ומתקדם שמציע חוויית קנייה יוצאת דופן לכל המשפחה. אנו מתחייבים לשירות איכותי, מבצעים משתלמים ומגוון רחב של מוצרים במחירים מעולים.
+          </p>
+          <p>
+            אנו כאן בשבילכם, עם סניפים נוחים ונגישים, וצוות מקצועי שיעזור לכם למצוא בדיוק את מה שאתם צריכים.
+          </p>
+        </div>
       </div>
     </section>
 
     <section id="contact" class="contact-section">
       <div class="container">
-        <h2>צור קשר</h2>
-        <p>כתובת: [עדכן כאן]</p>
-        <p>דוא"ל: [עדכן כאן]</p>
-        <p>טלפון: [עדכן כאן]</p>
+        <div class="info-box">
+          <h2>צור קשר</h2>
+          <ul class="contact-info">
+            <li>📍 כתובת: [עדכן כאן]</li>
+            <li>📧 דוא"ל: [עדכן כאן]</li>
+            <li>📞 טלפון: [עדכן כאן]</li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
