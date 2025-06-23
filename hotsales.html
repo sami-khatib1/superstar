@@ -10,35 +10,71 @@
 
 <body>
 
-  <img class="logo-heading" src="hotsales_logo.jpg" alt="SUPERSTAR Logo">
-
   <div class="container">
-    <h2>מבצעים חמים</h2>
+    <div class="sales-box">
+      <h2>מבצעים פעילים</h2>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="חפש פריט...">
+        <button id="search-button" onclick="filterImages()">
+          🔍
+        </button>
+      </div>
+      <img class="logo-heading" src="hotsales_logo.jpg" alt="HOTSALES Logo">
+    </div>
     <div class="sales-layout">
       <aside class="note-box">
         <p>
-          <h5> הבהרה חשובה!</h5>
-          כל המבצעים כפופים לתקנון. ההשתתפות במבצעים מותנית בעמידה בכל התנאים המפורטים
-          בתקנון, וזמינות המוצרים על פי המלאי הקיים. החברה רשאית להפסיק את המבצעים בכל עת.  המבצעים לחברי מועדון ומצטרפים חדשים בלבד (הצטרפות חינם). אין מכירת סיטונאות | אין כפל מבצעים | ט.ל.ח
+        <h5> הבהרה חשובה!</h5>
+        כל המבצעים כפופים לתקנון. ההשתתפות במבצעים מותנית בעמידה בכל התנאים המפורטים
+        בתקנון, וזמינות המוצרים על פי המלאי הקיים. החברה רשאית להפסיק את המבצעים בכל עת. המבצעים לחברי מועדון ומצטרפים
+        חדשים בלבד (הצטרפות חינם). אין מכירת סיטונאות | אין כפל מבצעים | ט.ל.ח
         </p>
       </aside>
       <div class="grid">
         <div class="sale-item"><img src="sales/IMG0001.jpg" alt="מבצע 1"></div>
-        <div class="sale-item"><img src="sales/IMG0002.jpg" alt="מבצע 2"></div>
-        <div class="sale-item"><img src="sales/IMG0003.jpg" alt="מבצע 3"></div>
-        <div class="sale-item"><img src="sales/IMG0004.jpg" alt="מבצע 4"></div>
+        <div class="sale-item"><img src="sales/IMG0002.jpg" alt="מבצע 1"></div>
+        <div class="sale-item"><img src="sales/IMG0003.jpg" alt="מבצע 1"></div>
+        <div class="sale-item"><img src="sales/IMG0004.jpg" alt="מבצע 1"></div>
         <div class="sale-item"><img src="sales/IMG0005.jpg" alt="מבצע 5"></div>
         <div class="sale-item"><img src="sales/IMG0006.jpg" alt="מבצע 6"></div>
         <div class="sale-item"><img src="sales/IMG0007.jpg" alt="מבצע 7"></div>
         <div class="sale-item"><img src="sales/IMG0008.jpg" alt="מבצע 8"></div>
         <div class="sale-item"><img src="sales/IMG0009.jpg" alt="מבצע 9"></div>
-        <div class="sale-item"><img src="sales/IMG0010.jpg" alt="מבצע 10"></div>
+        <div class="sale-item"><img src="sales/IMG0010.jpg" alt="מבצע 11"></div>
         <div class="sale-item"><img src="sales/IMG0011.jpg" alt="מבצע 11"></div>
         <!-- Add more as needed -->
       </div>
     </div>
   </div>
+  <script>
+    function filterImages() {
+      console.log("called");
+      const input = document.getElementById("searchInput")
+      const images = document.querySelectorAll(".sale-item img");
 
+      images.forEach(img => {
+        console.log("Alt:", img.alt);
+        const name = img.alt.toLowerCase();
+        const container = img.parentElement; // .sale-item
+
+        if (name.includes(input.value.toLowerCase())) {
+          container.style.display = "inline-block";
+        } else {
+          container.style.display = "none";
+        }
+      });
+      input.value = "";
+    }
+
+    const input = document.getElementById("searchInput");
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        filterImages();
+      }
+    });
+    
+  </script>
 </body>
 
 </html>
