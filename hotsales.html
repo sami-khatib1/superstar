@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>מבצעים חמים - סופרסטאר</title>
   <link rel="stylesheet" href="hotsales.css">
+  <link rel="icon" type="image/jpeg" href="logo.jpeg">
 </head>
 
 <body>
@@ -17,6 +18,9 @@
         <input type="text" id="searchInput" placeholder="חפש פריט...">
         <button id="search-button" onclick="filterImages()">
           🔍
+        </button>
+        <button id="reset-button" onclick="resetImages()">
+          איפוס
         </button>
       </div>
       <img class="logo-heading" src="hotsales_logo.jpg" alt="HOTSALES Logo">
@@ -66,14 +70,22 @@
       input.value = "";
     }
 
+    function resetImages() {
+      const images = document.querySelectorAll(".sale-item img");
+      images.forEach(img => {
+        const container = img.parentElement;
+        container.style.display = "inline-block";
+      })
+    }
+
     const input = document.getElementById("searchInput");
-    input.addEventListener("keydown", function(e) {
+    input.addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
         e.preventDefault();
         filterImages();
       }
     });
-    
+
   </script>
 </body>
 
