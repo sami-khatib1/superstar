@@ -1,3 +1,4 @@
+/* ===== Base Styles ===== */
 body {
   margin: 0;
   padding: 0;
@@ -7,107 +8,100 @@ body {
   direction: rtl;
 }
 
-
+/* ===== Sales Box ===== */
 .sales-box {
-  border-top: 15px solid #003f87;
-  max-width: 1900px;
-  height: 120px;
-  margin-bottom: 100px;
-  padding: 20px 40px;
+  border-top: 1vh solid #003f87;
+  max-width: 100%;
+  height: 15vh;
+  margin-bottom: 10vh;
+  padding: 2vh 5vw;
   background-color: #0047ab;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 20px 8px rgba(0, 0, 0, 0.2);
-  direction: rtl;
-  gap: 10px;
+  box-shadow: 0 2vh 1vh rgba(0, 0, 0, 0.2);
+  gap: 1vw;
   position: relative;
 }
 
 .sales-box .logo-heading {
-  height: 80px;
+  height: 10vh;
   width: auto;
   display: block;
 }
 
-/* Title style (right) */
 .sales-box h2 {
   color: white;
   font-size: 2.8rem;
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   font-weight: bold;
-  border-radius: 8px;
+  border-bottom: 0.3vh solid #ffd700;
+  border-radius: 2vh;
+  padding: 1vh 3vw;
+  box-shadow: 0 0.6vh 1.8vh rgba(0, 70, 171, 0.15);
   transition: background-color 0.3s, color 0.3s;
-  border-bottom: 3px solid #ffd700;
-  border-radius: 20px;
-  padding: 10px 40px;
-  box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
 }
 
 .search-box {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 1vw;
 }
 
 .search-box input {
-  padding: 6px 10px;
-  border-radius: 5px;
-  border: none;
+  padding: 0.8vh 1vw;
+  border-radius: 1vh;
+  border: 0.3vh solid black;
   font-size: 1rem;
-  border: 3px solid black;
-  border-radius: 10px;
 }
 
 .search-box button {
   background-color: white;
-  border: none;
+  border: 0.3vh solid black;
+  border-radius: 1vh;
   font-size: 1.2rem;
   cursor: pointer;
-  border: 3px solid black;
-  border-radius: 10px;
+  padding: 0.8vh 1vw;
 }
 
-
-/* NOTE BOX – sticks to the very left */
+/* ===== Note Box ===== */
 .note-box {
   color: white;
-  margin-top: 100px;
-  margin-bottom: 30px;
+  margin-top: 10vh;
+  margin-bottom: 3vh;
   position: sticky;
-  top: 20px;
+  top: 2vh;
   font-weight: 500;
-  padding-bottom: 15px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  font-size: 1rem;
+  padding-bottom: 1.5vh;
   text-align: center;
   overflow: hidden;
-  border-bottom: 3px solid #ffd700;
-  padding: 10px 40px;
-  box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
+  border-bottom: 0.3vh solid #ffd700;
+  padding: 1vh 3vw;
+  box-shadow: 0 0.6vh 1.8vh rgba(0, 70, 171, 0.15);
+  font-size: 1rem;
 }
 
 .note-box h5 {
   font-size: 1.3em;
 }
 
-/* GRID – remaining space */
+/* ===== Grid ===== */
 .grid {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 40px 20px 0px 80px;
+  gap: 2vw;
+  padding: 4vh 2vw 0 5vw;
 }
 
 .sale-item {
   background: white;
-  border-radius: 40px;
+  border-radius: 4vh;
   width: 90%;
-  margin-bottom: 50px;
-  border: 3px solid #0047ab;
-  box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
+  margin-bottom: 5vh;
+  border: 0.3vh solid #0047ab;
+  box-shadow: 0 0.6vh 1.8vh rgba(0, 70, 171, 0.15);
   overflow: hidden;
   transition: transform 0.3s ease;
   cursor: pointer;
@@ -121,10 +115,10 @@ body {
 .sale-item img {
   width: 100%;
   display: block;
-  border-radius: 20px;
+  border-radius: 2vh;
 }
 
-/* Responsive grid */
+/* ===== Responsive Grid ===== */
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
@@ -146,12 +140,13 @@ body {
   .note-box {
     width: 100%;
     margin-left: 0;
-    margin-bottom: 20px;
-    border-radius: 10px;
+    margin-bottom: 2vh;
+    border-radius: 1vh;
   }
 
   .grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 4vw;
   }
 }
 

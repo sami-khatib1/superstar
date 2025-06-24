@@ -1,3 +1,4 @@
+/* ===== Base Styles ===== */
 body {
   margin: 0;
   font-family: 'Heebo', sans-serif;
@@ -12,35 +13,33 @@ a {
   cursor: pointer;
 }
 
-/* Removed .logo-img styles since no image now */
-
+/* ===== Top Navigation Bar ===== */
 .top-nav {
   background-color: #002c6f;
-  height: 50px;
-  padding: 8px 20px;
+  height: 8vh;
+  padding: 1vh 5%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .top-nav ul {
   list-style: none;
-  height: 50px;
+  height: 100%;
   display: flex;
   justify-content: flex-end;
-  gap: 60px;
+  gap: 5%;
+  padding: 0;
+  margin: 0;
 }
-
 
 .top-nav ul li a {
   color: white;
-  height: 50px;
   font-weight: 600;
   font-size: 1.6rem;
-  border-radius: 6px;
-  transition: background-color 0.3s, color 0.3s;
-  border-bottom: 3px solid #ffd700;
   border-radius: 20px;
-  padding: 10px 40px;
+  padding: 1vh 2vw;
+  border-bottom: 3px solid #ffd700;
   box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .top-nav ul li a:hover {
@@ -48,64 +47,57 @@ a {
   color: #002c6f;
 }
 
-
+/* ===== Header ===== */
 header {
   background-color: #0047ab;
   color: white;
-  padding: 20px 0;
-  max-width: 1900px;
-  margin-bottom: 100px;
-  padding: 20px 40px;
-  background-color: #0047ab;
+  padding: 2vh 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 20px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   direction: rtl;
-  gap: 10px;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo-heading {
-  display: block;            
-  height: 100px;          
-  width: 280px;
-  margin: 0 auto;          
-  background-color: transparent; 
-  padding-left: 500px;
+  height: 10vh;
+  width: 20vw;
+  background-color: transparent;
+  flex-shrink: 0;
 }
 
 .header-container {
-  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  padding-left: 300px;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 2vw;
 }
 
-/* New heading style replacing the logo */
-
-
+/* ===== Navigation ===== */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 30px;
-  margin: 0;
+  gap: 3vw;
   padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 nav ul li a {
   color: white;
   font-weight: 600;
   font-size: 1.6rem;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: background-color 0.3s, color 0.3s;
-  border-bottom: 3px solid #ffd700;
+  padding: 1vh 2vw;
   border-radius: 20px;
-  padding: 10px 40px;
+  border-bottom: 3px solid #ffd700;
   box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 nav ul li a:hover {
@@ -113,31 +105,32 @@ nav ul li a:hover {
   color: #0047ab;
 }
 
+/* ===== Main Content ===== */
 main {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width: 90%;
+  margin: 5vh auto;
+  padding: 0 5%;
 }
 
 .hero-section {
   background: linear-gradient(135deg, #0047ab, #0066cc);
   color: white;
   text-align: center;
-  padding: 80px 20px;
+  padding: 10vh 5%;
   border-radius: 24px;
   box-shadow: 0 8px 20px rgba(0, 70, 171, 0.5);
 }
 
 .hero-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 2vh;
   font-weight: 700;
 }
 
 .hero-section p {
   font-size: 1.3rem;
   line-height: 1.6;
-  max-width: 600px;
+  max-width: 80%;
   margin: 0 auto;
 }
 
@@ -145,18 +138,18 @@ section {
   background-color: white;
   border: 3px solid #0047ab;
   border-radius: 20px;
-  padding: 30px 40px;
+  padding: 5vh 5%;
   box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
-  margin-bottom: 40px;
+  margin-bottom: 5vh;
 }
 
 section h2 {
   color: #0047ab;
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 2vh;
   font-weight: 700;
   border-bottom: 3px solid #ffd700;
-  padding-bottom: 10px;
+  padding-bottom: 1vh;
   display: inline-block;
 }
 
@@ -164,6 +157,14 @@ section p {
   font-size: 1.1rem;
   line-height: 1.7;
   color: #333;
+}
+
+.hero-section p{
+  color: white;
+}
+
+.hero-section h2{
+  color: white;
 }
 
 .contact-info {
@@ -175,12 +176,7 @@ section p {
 }
 
 .contact-info li {
-  margin-bottom: 12px;
-}
-
-.hero-section h2,
-.hero-section p {
-  color: white;
+  margin-bottom: 1vh;
 }
 
 footer {
@@ -190,51 +186,20 @@ footer {
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 1px;
+  padding: 2vh 0;
 }
 
-@media (max-width: 600px) {
-  .header-container {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-
-  .hero-section {
-    padding: 60px 15px;
-  }
-
-  main {
-    margin: 20px auto;
-  }
-
-  section {
-    padding: 20px 15px;
-  }
-
-  .top-nav ul {
-    justify-content: center;
-    gap: 20px;
-  }
-}
-
+/* ===== Social Links ===== */
 .social-links {
-  margin-top: 20px;
+  margin-top: 5vh;
   display: flex;
-  gap: 260px;
-  height: 15px;;
+  gap: 10vw;
   justify-content: center;
   align-items: center;
-  box-shadow: #002c6f;
-  text-box-edge: 10px #002c6f;
   border-radius: 20px;
-  padding: 30px 40px;
+  padding: 3vh 5%;
   box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
-  margin-bottom: 1px;
+  flex-wrap: wrap;
 }
 
 .social-links a img {
@@ -250,59 +215,82 @@ footer {
 .fa-brands, .fa-solid {
   background-color: white;
   font-size: 28px;
-  margin: 0 10px;
-  transition: color 0.3s;
-  box-shadow: #002c6f;
-  text-box-edge: 10px #002c6f;
+  margin: 0 1vw;
+  transition: transform 0.3s;
   border: 3px solid #002c6f;
   border-radius: 7px;
-  padding: 10px 10px;
+  padding: 10px;
   box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
 }
-.fa-brands:hover, .fa-solid:hover{
+
+.fa-brands:hover, .fa-solid:hover {
   transform: scale(1.2);
 }
+
 .fa-facebook {
   color: #3b5998;
 }
+
 .fa-square-instagram {
   color: brown;
 }
+
 .fa-tiktok {
   color: #010101;
 }
+
 .fa-earth-africa {
-  color: #1e7216; /* Google red */
+  color: #1e7216;
 }
 
+/* ===== Responsive Media Query ===== */
 @media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .logo-heading {
-    padding-left: 0;
-    margin: 0 auto;
-    width: 80%;
+    width: 60vw;
     height: auto;
   }
 
+  nav ul {
+    flex-direction: column;
+    gap: 2vh;
+  }
+
+  .top-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+  }
+
+  .hero-section {
+    padding: 6vh 5%;
+  }
+
+  main {
+    margin: 2vh auto;
+  }
+
+  section {
+    padding: 4vh 5%;
+  }
+
   .social-links {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 15px 10px;
-    justify-content: center;
+    gap: 5vw;
+    padding: 2vh 5%;
   }
 
   .fa-brands, .fa-solid {
     padding: 8px;
     font-size: 24px;
-    margin: 5px;
-  }
-
-  .header-container {
-    padding-left: 0;
+    margin: 1vw;
   }
 
   nav ul li a {
-    padding: 10px 20px;
+    padding: 1vh 2vw;
     font-size: 1.3rem;
   }
 }
