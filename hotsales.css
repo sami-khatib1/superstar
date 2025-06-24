@@ -9,15 +9,17 @@ body {
 
 
 .sales-box {
+  border-top: 15px solid #003f87;
   max-width: 1900px;
+  height: 120px;
   margin-bottom: 100px;
   padding: 20px 40px;
-  background-color: #003f87;       /* Deep blue background */
+  background-color: #0047ab;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 20px 8px rgba(0, 0, 0, 0.2); /* soft depth */
-  direction: rtl; /* For Hebrew layout */
+  box-shadow: 0 20px 8px rgba(0, 0, 0, 0.2);
+  direction: rtl;
   gap: 10px;
   position: relative;
 }
@@ -30,11 +32,17 @@ body {
 
 /* Title style (right) */
 .sales-box h2 {
-  color: #ffd700;
+  color: white;
   font-size: 2.8rem;
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  border-bottom: 3px solid #ffd700;
+  border-radius: 20px;
+  padding: 10px 40px;
+  box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
 }
 
 .search-box {
@@ -48,6 +56,8 @@ body {
   border-radius: 5px;
   border: none;
   font-size: 1rem;
+  border: 3px solid black;
+  border-radius: 10px;
 }
 
 .search-box button {
@@ -55,44 +65,30 @@ body {
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
+  border: 3px solid black;
+  border-radius: 10px;
 }
 
-/* Layout of note + grid */
-.sales-layout {
-  display: flex;
-  /* flex-direction: row-reverse;  */
-  /* align-items: flex-start; */
-}
 
 /* NOTE BOX – sticks to the very left */
 .note-box {
-  width: 130px;
-  max-height: 600px;
-  margin-top: 80px;
-  margin-left: 10px;
+  color: white;
+  margin-top: 100px;
+  margin-bottom: 30px;
   position: sticky;
   top: 20px;
-  background-color: bisque;
   font-weight: 500;
-  padding: 16px 10px;
-  border-radius: 12px;
+  padding-bottom: 15px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-align: center;
-  z-index: 1;
-  line-height: 1.6;
-  border: 1px solid #ccc;
   overflow: hidden;
-}
-
-.note-box p {
-  margin: 0;
-  color: black;
-  font-weight: 500;
+  border-bottom: 3px solid #ffd700;
+  padding: 10px 40px;
+  box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
 }
 
 .note-box h5 {
-  color: red;
   font-size: 1.3em;
 }
 
@@ -107,7 +103,9 @@ body {
 
 .sale-item {
   background: white;
-  border-radius: 20px;
+  border-radius: 40px;
+  width: 90%;
+  margin-bottom: 50px;
   border: 3px solid #0047ab;
   box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
   overflow: hidden;

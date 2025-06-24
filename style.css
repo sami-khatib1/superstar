@@ -31,13 +31,16 @@ a {
 
 
 .top-nav ul li a {
-  color: #ffd700;
+  color: white;
   height: 50px;
   font-weight: 600;
   font-size: 1.6rem;
-  padding: 6px 12px;
   border-radius: 6px;
   transition: background-color 0.3s, color 0.3s;
+  border-bottom: 3px solid #ffd700;
+  border-radius: 20px;
+  padding: 10px 40px;
+  box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
 }
 
 .top-nav ul li a:hover {
@@ -45,37 +48,44 @@ a {
   color: #002c6f;
 }
 
+
 header {
   background-color: #0047ab;
   color: white;
   padding: 20px 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 1900px;
+  margin-bottom: 100px;
+  padding: 20px 40px;
+  background-color: #0047ab;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 20px 8px rgba(0, 0, 0, 0.2);
+  direction: rtl;
+  gap: 10px;
+  position: relative;
 }
 
 .logo-heading {
-  display: block;            /* Makes it behave like h1 */
-  height: 100px;              /* Similar to h1 height */
+  display: block;            
+  height: 100px;          
   width: 280px;
-  margin: 0 auto;            /* Center horizontally */
-  background-color: transparent;  /* Just in case */
+  margin: 0 auto;          
+  background-color: transparent; 
+  padding-left: 500px;
 }
 
 .header-container {
-  max-width: 1200px;
   margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  padding-left: 300px;
 }
 
 /* New heading style replacing the logo */
 
-.logo-heading:hover {
-  filter:
-    drop-shadow(0 0 10px #ffd700) drop-shadow(0 0 20px #0047ab) drop-shadow(0 0 30px #ffd700);
-  cursor: default;
-}
 
 nav ul {
   list-style: none;
@@ -92,6 +102,10 @@ nav ul li a {
   padding: 6px 12px;
   border-radius: 8px;
   transition: background-color 0.3s, color 0.3s;
+  border-bottom: 3px solid #ffd700;
+  border-radius: 20px;
+  padding: 10px 40px;
+  box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
 }
 
 nav ul li a:hover {
@@ -173,7 +187,6 @@ footer {
   background-color: #0047ab;
   color: white;
   text-align: center;
-  padding: 18px 10px;
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 1px;
@@ -206,5 +219,90 @@ footer {
   .top-nav ul {
     justify-content: center;
     gap: 20px;
+  }
+}
+
+.social-links {
+  margin-top: 20px;
+  display: flex;
+  gap: 260px;
+  height: 15px;;
+  justify-content: center;
+  align-items: center;
+  box-shadow: #002c6f;
+  text-box-edge: 10px #002c6f;
+  border-radius: 20px;
+  padding: 30px 40px;
+  box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
+  margin-bottom: 1px;
+}
+
+.social-links a img {
+  width: 32px;
+  height: 30px;
+  transition: transform 0.2s;
+}
+
+.social-links a img:hover {
+  transform: scale(1.1);
+}
+
+.fa-brands, .fa-solid {
+  background-color: white;
+  font-size: 28px;
+  margin: 0 10px;
+  transition: color 0.3s;
+  box-shadow: #002c6f;
+  text-box-edge: 10px #002c6f;
+  border: 3px solid #002c6f;
+  border-radius: 7px;
+  padding: 10px 10px;
+  box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
+}
+.fa-brands:hover, .fa-solid:hover{
+  transform: scale(1.2);
+}
+.fa-facebook {
+  color: #3b5998;
+}
+.fa-square-instagram {
+  color: brown;
+}
+.fa-tiktok {
+  color: #010101;
+}
+.fa-earth-africa {
+  color: #1e7216; /* Google red */
+}
+
+@media (max-width: 600px) {
+  .logo-heading {
+    padding-left: 0;
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+  }
+
+  .social-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px 10px;
+    justify-content: center;
+  }
+
+  .fa-brands, .fa-solid {
+    padding: 8px;
+    font-size: 24px;
+    margin: 5px;
+  }
+
+  .header-container {
+    padding-left: 0;
+  }
+
+  nav ul li a {
+    padding: 10px 20px;
+    font-size: 1.3rem;
   }
 }

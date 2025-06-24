@@ -7,26 +7,53 @@ body {
 }
 
 header {
+    border-top: 15px solid #003f87;
+    max-width: 1900px;
+    margin-bottom: 100px;
+    padding: 20px 40px;
     background-color: #0047ab;
-    color: white;
-    padding: 20px 0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 20px 8px rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    gap: 10px;
+    position: relative;
 }
 
 header h1 {
-    margin: 0;
+    margin: 0 auto;
     font-size: 3rem;
     font-weight: 900;
-    color: #ffd700;
+    color: white;
     letter-spacing: 5px;
     user-select: none;
+    border-bottom: 3px solid #ffd700;
+    border-radius: 4px;
+    padding: 10px 40px;
+    box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
+}
+
+header a img {
+    height: 100px;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1300px;
     margin: 40px auto;
     padding: 0 20px;
+}
+
+#open-jobs-heading {
+    width: 300px;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 80px;
+  letter-spacing: 1px;
+  border-bottom:3px solid #ffd700;
 }
 
 .container h2 {
@@ -37,12 +64,14 @@ header h1 {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    margin-bottom: 150px;
 }
 
 .career-item {
     background: white;
+    height: 100%;
     border-radius: 20px;
     border: 3px solid #0047ab;
     box-shadow: 0 6px 18px rgba(0, 70, 171, 0.15);
@@ -58,7 +87,7 @@ header h1 {
 
 .career-item img {
     width: 100%;
-    height: 180px;
+    height: 300px;
     object-fit: cover;
     display: block;
     border-bottom: 3px solid #0047ab;
