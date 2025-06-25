@@ -25,9 +25,9 @@ body {
 }
 
 .sales-heading .logo-heading {
-  height: 10vh;
+  height: auto;
+  max-height: 120px;
   width: auto;
-  display: block;
 }
 
 .sales-heading h2 {
