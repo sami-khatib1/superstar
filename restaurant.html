@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restaurant Name | CHECKIN</title>
+  <link rel="stylesheet" href="testing.css" />
+</head>
+<body>
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <h1 class="logo">CHECKIN</h1>
+  </header>
+
+  <main class="content">
+    <!-- Restaurant Info -->
+    <section class="restaurant-details">
+      <h2>Sunset Bistro</h2>
+      <p>Type: Mediterranean | City: Tel Aviv | Pets: Allowed</p>
+      <p>
+        Sunset Bistro is a fine dining experience with a view of the sea.
+        Enjoy fresh seafood, local wine, and romantic ambiance.
+      </p>
+
+      <!-- Simple Reservation -->
+      <h3>Reserve a Table</h3>
+      <form onsubmit="return reserveTable(event)">
+        <input type="text" placeholder="Your Name" required />
+        <input type="date" required />
+        <input type="time" required />
+        <button type="submit">Reserve</button>
+      </form>
+      <p id="reservation-message" class="message"></p>
+    </section>
+  </main>
+
+  <script>
+    function reserveTable(event) {
+      event.preventDefault();
+      document.getElementById("reservation-message").textContent =
+        "Reservation submitted! We will contact you.";
+      return false;
+    }
+  </script>
+</body>
+</html>

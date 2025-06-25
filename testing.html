@@ -1,169 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restaurant Table Reservation</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f4f4;
-      overflow: hidden;
-    }
-    .landing {
-      text-align: center;
-      padding: 100px;
-      background-color: #0047ab;
-      color: white;
-    }
-    .landing button {
-      padding: 15px 30px;
-      font-size: 18px;
-      background-color: #ffd700;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .reservation-page {
-      display: none;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-      position: relative;
-    }
-    .grid-area {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      background: #e0e0e0;
-    }
-    .table {
-      width: 100px;
-      height: 100px;
-      background-color: green;
-      border-radius: 12px;
-      color: white;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      cursor: move;
-      user-select: none;
-    }
-    .table.reserved {
-      background-color: red;
-      cursor: not-allowed;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 30px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-      border-radius: 12px;
-      width: 300px;
-      z-index: 10;
-    }
-    .modal input {
-      width: 100%;
-      margin-bottom: 12px;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 5;
-    }
-  </style>
+  <title>CHECKIN</title>
+  <link rel="stylesheet" href="testing.css" />
 </head>
+
 <body>
-  <div class="landing">
-    <h1>Welcome to Smart Reservation</h1>
-    <p>Book your table in 3D now!</p>
-    <button onclick="startReservation()">Start Reserving</button>
-  </div>
+  <!-- Top Crossbar -->
+  <header class="top-bar">
+    <h1 class="logo">CHECKIN</h1>
+    <div class="language-selector">
+      <select>
+        <option value="en">EN</option>
+        <option value="fr">FR</option>
+        <!-- Add more languages -->
+      </select>
+    </div>
+  </header>
 
-  <div class="reservation-page">
-    <div class="grid-area" id="gridArea"></div>
-  </div>
+  <!-- Sidebar menu (for future extension) -->
+  <nav class="sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="restaurants.html">Restaurants</a></li>
+    </ul>
+  </nav>
 
-  <div class="overlay" id="overlay"></div>
-  <div class="modal" id="formModal">
-    <form id="stepForm">
-      <div id="step1">
-        <input type="text" placeholder="Name" required />
-        <input type="tel" placeholder="Phone Number" required />
-        <button type="button" onclick="nextStep(2)">Send Code</button>
-      </div>
-      <div id="step2" style="display:none">
-        <input type="text" placeholder="Enter Code" required />
-        <button type="button" onclick="nextStep(3)">Verify</button>
-      </div>
-      <div id="step3" style="display:none">
-        <input type="text" placeholder="Card Number" required />
-        <input type="text" placeholder="MM/YY" required />
-        <input type="text" placeholder="CVV" required />
-        <input type="text" placeholder="Name on Card" required />
-        <button type="submit">Confirm Payment</button>
-      </div>
-    </form>
-  </div>
+  <!-- Main Content -->
+  <main class="content">
+    <!-- About Us -->
+    <section class="about-us">
+      <h2>About Us</h2>
+      <p>Welcome to CHECKIN – Your go-to app for restaurant reservations, all from the comfort of your browser.</p>
+    </section>
 
+    <!-- Choose Restaurant Button -->
+    <section class="choose-restaurant">
+      <button onclick="window.location.href='restaurants.html'">Choose a Restaurant</button>
+    </section>
+
+    <section class="hot-restaurants">
+      <h2>Hot Restaurants</h2>
+      <div class="scroll-buttons">
+        <button onclick="scrollHot(-1)">←</button>
+        <button onclick="scrollHot(1)">→</button>
+      </div>
+      <div class="restaurant-scroll" id="hot-scroll">
+        <div class="restaurant-card" onclick="window.location.href='restaurant.html'">
+          <h3>Sunset Bistro</h3>
+        </div>
+        <div class="restaurant-card" onclick="window.location.href='restaurant.html'">
+          <h3>Urban Grill</h3>
+        </div>
+        <!-- Add more -->
+      </div>
+    </section>
+  </main>
   <script>
-    function startReservation() {
-      document.querySelector('.landing').style.display = 'none';
-      document.querySelector('.reservation-page').style.display = 'block';
-      renderTables();
-    }
-
-    function renderTables() {
-      const gridArea = document.getElementById('gridArea');
-      for (let i = 1; i <= 12; i++) {
-        const table = document.createElement('div');
-        table.className = 'table';
-        table.textContent = `T${i}`;
-        table.style.top = `${Math.random() * 400 + 50}px`;
-        table.style.left = `${Math.random() * 600 + 50}px`;
-        table.draggable = true;
-
-        table.addEventListener('dragstart', e => {
-          e.dataTransfer.setData('text/plain', null);
-          table.dataset.offsetX = e.offsetX;
-          table.dataset.offsetY = e.offsetY;
-        });
-
-        table.addEventListener('dragend', e => {
-          const offsetX = parseInt(table.dataset.offsetX);
-          const offsetY = parseInt(table.dataset.offsetY);
-          const newX = e.pageX - offsetX;
-          const newY = e.pageY - offsetY;
-          table.style.left = newX + 'px';
-          table.style.top = newY + 'px';
-        });
-
-        table.addEventListener('click', () => selectTable(i));
-        gridArea.appendChild(table);
-      }
-    }
-
-    function selectTable(id) {
-      document.getElementById('overlay').style.display = 'block';
-      document.getElementById('formModal').style.display = 'block';
-    }
-
-    function nextStep(step) {
-      document.querySelectorAll('#stepForm > div').forEach(div => div.style.display = 'none');
-      document.getElementById(`step${step}`).style.display = 'block';
+    function scrollHot(direction) {
+      const scrollDiv = document.getElementById("hot-scroll");
+      scrollDiv.scrollBy({
+        left: direction * 220,
+        behavior: "smooth"
+      });
     }
   </script>
 </body>
+
 </html>

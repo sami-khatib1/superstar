@@ -10,22 +10,30 @@
 
 <body>
 
+
+  <div class="sales-heading">
+    <h2>מבצעים פעילים</h2>
+    <a href="index.html">
+      <img class="logo-heading" src="logo.jpeg" alt="HOTSALES Logo">
+    </a>
+  </div>
   <div class="container">
-    <div class="sales-heading">
-      <h2>מבצעים פעילים</h2>
-      <a href="index.html">
-        <img class="logo-heading" src="logo.jpeg" alt="HOTSALES Logo">
-      </a>
-    </div>
     <div class="search-box">
-        <input type="text" id="searchInput" placeholder="חפש פריט...">
-        <button id="search-button" onclick="filterImages()">
-          🔍
-        </button>
-        <button id="reset-button" onclick="resetImages()">
-          איפוס
-        </button>
-      </div>
+      <input type="text" id="searchInput" placeholder="חפש פריט...">
+      <button id="search-button">
+        🔍
+      </button>
+      <button id="reset-button">
+        איפוס
+      </button>
+
+    </div>
+    <div class="filter">
+      <span class="choose-dep"> בחר מחלקה </span>
+      <select name="department" id="chs-dp">
+        <option> הכל</option>
+      </select>
+    </div>
     <div class="sales-layout">
       <div id="grid" class="grid">
         <div class="sale-item"><img src="sales/IMG0002.jpg" alt="מבצע 1"></div>
@@ -43,47 +51,85 @@
       </div>
     </div>
     <aside class="note-box">
-        <p>
-        <h5> הבהרה חשובה!</h5>
-        כל המבצעים כפופים לתקנון. ההשתתפות במבצעים מותנית בעמידה בכל התנאים המפורטים
-        בתקנון, וזמינות המוצרים על פי המלאי הקיים. החברה רשאית להפסיק את המבצעים בכל עת. המבצעים לחברי מועדון ומצטרפים
-        חדשים בלבד (הצטרפות חינם). אין מכירת סיטונאות | אין כפל מבצעים | ט.ל.ח
-        </p>
-      </aside>
+      <p>
+      <h5> הבהרה חשובה!</h5>
+      כל המבצעים כפופים לתקנון. ההשתתפות במבצעים מותנית בעמידה בכל התנאים המפורטים
+      בתקנון, וזמינות המוצרים על פי המלאי הקיים. החברה רשאית להפסיק את המבצעים בכל עת. המבצעים לחברי מועדון ומצטרפים
+      חדשים בלבד (הצטרפות חינם). אין מכירת סיטונאות | אין כפל מבצעים | ט.ל.ח
+      </p>
+    </aside>
   </div>
   <script>
-    function filterImages() {
-      const input = document.getElementById("searchInput");
+    let departments = ["מזון", "חומרי ניקוי", "ירקות", "בשר", "פיצוחיה", "מקרר", "קמפינג", "שתיה"];
+    const sel = document.querySelector("#chs-dp");
+    const input = document.getElementById("searchInput");
+    const searchButton = document.querySelector("#search-button");
+    const resetButton = document.querySelector("#reset-button");
+    let inputLastVal = input.value;
+
+    departments.forEach(dep => {
+      const newOption = document.createElement("option");
+      newOption.value = dep;
+      newOption.text = dep;
+      sel.appendChild(newOption);
+    });
+
+
+    function filterImages(filterFunc) {
       const images = document.querySelectorAll(".sale-item img");
 
       images.forEach(img => {
-        const name = img.alt.toLowerCase();
         const container = img.parentElement; // .sale-item
 
-        if (name.includes(input.value.toLowerCase())) {
+        if (filterFunc(img)) {
           container.style.display = "inline-block";
         } else {
           container.style.display = "none";
         }
       });
+      console.log("filter func last = ", input.value);
+      inputLastVal = input.value !== "" ? input.value : inputLastVal;
       input.value = "";
     }
 
-    function resetImages() {
-      const images = document.querySelectorAll(".sale-item img");
-      const input = document.getElementById("searchInput");
-      images.forEach(img => {
-        const container = img.parentElement;
-        container.style.display = "inline-block";
-      });
-      input.value = "";
+    function filterByName(img) {
+      const name = img.alt.toLowerCase();
+      return name.includes(input.value.toLowerCase());
     }
 
-    const input = document.getElementById("searchInput");
     input.addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
         e.preventDefault();
-        filterImages();
+        filterImages(filterByName);
+      }
+    });
+
+    searchButton.addEventListener('click', () => {
+      filterImages(filterByName);
+    });
+
+    resetButton.addEventListener('click', () => {
+      filterImages(function (img) {
+        return true;
+      });
+    });
+
+    sel.addEventListener('change', () => {
+      if (sel.value == "הכל") {
+        console.log("sami");
+        filterImages(function (img) {
+          console.log("las = ", inputLastVal);
+          if (img.parentElement.style.display === "none" &&
+          !img.alt.toLowerCase().includes(inputLastVal.toLowerCase())) {
+            return false;
+          }
+          return true;
+        });
+      }
+      else {
+        filterImages(function () {
+          return false;
+        });
       }
     });
 
