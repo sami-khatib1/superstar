@@ -52,12 +52,10 @@
   </div>
   <script>
     function filterImages() {
-      console.log("called");
-      const input = document.getElementById("searchInput")
+      const input = document.getElementById("searchInput");
       const images = document.querySelectorAll(".sale-item img");
 
       images.forEach(img => {
-        console.log("Alt:", img.alt);
         const name = img.alt.toLowerCase();
         const container = img.parentElement; // .sale-item
 
@@ -72,10 +70,12 @@
 
     function resetImages() {
       const images = document.querySelectorAll(".sale-item img");
+      const input = document.getElementById("searchInput");
       images.forEach(img => {
         const container = img.parentElement;
         container.style.display = "inline-block";
-      })
+      });
+      input.value = "";
     }
 
     const input = document.getElementById("searchInput");
