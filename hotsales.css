@@ -8,100 +8,93 @@ body {
   direction: rtl;
 }
 
-/* ===== Sales Box ===== */
-.sales-heading {
-  border-top: 1vh solid #003f87;
-  max-width: 100%;
-  margin-bottom: 10vh;
-  background-color: #0047ab;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2vh 1vh rgba(0, 0, 0, 0.2);
-  gap: 1vw;
-  position: relative;
-  justify-content: space-between;
-  padding: 0 100px; /* 100px from both sides */
+.container {
+  margin: 20px;
 }
 
-.sales-heading .logo-heading {
-  height: auto;
-  max-height: 120px;
-  width: auto;
+/* ===== Sales Header ===== */
+.sales-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #0047ab;
+  padding: 2vh 5vw;
+  border-top: 1vh solid #003f87;
+  box-shadow: 0 1vh 1vh rgba(0, 0, 0, 0.2);
+  margin-bottom: 5vh;
 }
 
 .sales-heading h2 {
   color: white;
-  font-size: 3em;
-  padding-bottom: 0.3em;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
+  font-size: 2rem;
   font-weight: bold;
-  border-bottom: 0.08em solid #ffd700;
-  border-radius: 0.3em;
-  box-shadow: 0 0.6vh 1.8vh rgba(0, 70, 171, 0.15);
-  transition: background-color 0.3s, color 0.3s;
+  border-bottom: 2px solid #ffd700;
+  padding-bottom: 0.3em;
+  border-radius: 0.5em;
+  white-space: nowrap;
 }
 
+.logo-heading {
+  max-height: 8vh;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ===== Search Box ===== */
 .search-box {
-  margin-bottom: 100px;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1vw;
-justify-content: center; /* Horizontal centering */
-align-items: center;     /* Vertical centering */
+  margin-bottom: 5vh;
+  flex-wrap: wrap;
 }
 
-.search-box input {
-  padding: 0.8vh 1vw;
-  border-radius: 1vh;
-  border: 0.3vh solid black;
+.search-box input,
+.search-box button {
   font-size: 1rem;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  border: 2px solid black;
 }
 
 .search-box button {
-  background-color: white;
-  border: 0.3vh solid black;
-  border-radius: 1vh;
-  font-size: 1.2rem;
+  background: white;
   cursor: pointer;
-  padding: 0.8vh 1vw;
 }
 
 /* ===== Note Box ===== */
 .note-box {
+  background-color: #0047ab;
   color: white;
-  margin-top: 10vh;
-  margin-bottom: 3vh;
-  position: sticky;
-  top: 2vh;
-  font-weight: 500;
-  padding-bottom: 1.5vh;
+  padding: 2vh 5vw;
   text-align: center;
-  overflow: hidden;
-  border-bottom: 0.3vh solid #ffd700;
-  padding: 1vh 3vw;
+  border-bottom: 2px solid #ffd700;
   box-shadow: 0 0.6vh 1.8vh rgba(0, 70, 171, 0.15);
   font-size: 1rem;
+  margin-bottom: 5vh;
 }
 
 .note-box h5 {
-  font-size: 1.3em;
+  margin: 0 0 0.5em;
+  font-size: 1.2rem;
 }
 
 /* ===== Grid ===== */
 .grid {
-  flex: 1;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2vw;
+  justify-content: center;
+  margin-bottom: 50px;
 }
 
 .sale-item {
   background: white;
-  border-radius: 4vh;
-  width: 90%;
-  margin-bottom: 5vh;
-  border: 0.3vh solid #0047ab;
+  border-radius: 1.5em;
+  border: 2px solid #0047ab;
   box-shadow: 0 0.6vh 1.8vh rgba(0, 70, 171, 0.15);
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -115,9 +108,32 @@ align-items: center;     /* Vertical centering */
 
 .sale-item img {
   width: 100%;
+  height: auto;
   display: block;
-  border-radius: 2vh;
+  border-radius: 1em;
 }
 
+/* ===== Responsive Typography ===== */
+@media (max-width: 600px) {
+  .sales-heading h2 {
+    font-size: 1.5rem;
+  }
 
+  .logo-heading {
+    max-height: 6vh;
+  }
 
+  .note-box h5 {
+    font-size: 1rem;
+  }
+
+  .search-box input,
+  .search-box button {
+    width: 100%;
+    margin-top: 0.5em;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+}
