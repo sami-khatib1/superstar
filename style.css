@@ -20,23 +20,29 @@ a {
   box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.2);
 }
 
-.top-nav ul {
+nav ul {
   list-style: none;
-  height: 90%;
   display: flex;
-  justify-content: flex-end;
-  gap: 2.5%;
+  gap: 3vw; /* Gap depends on viewport width */
   padding: 0;
   margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.top-nav ul li a {
+nav ul li a {
   color: white;
-  font-size: 1.2em;
-  border-radius: 15%;
+  font-size: 1.2em; 
+  padding: 0.6em 0em; 
+  border-radius: 0.5em;
   border-bottom: 0.15em solid #ffd700;
   box-shadow: 0 0.375em 1.125em rgba(0, 70, 171, 0.15);
   transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #ffd700;
+  color: #002c6f;
 }
 
 @keyframes pulse {
@@ -64,11 +70,6 @@ a {
   padding: 0.625em 1.25em;
   box-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
   transition: transform 0.2s;
-}
-
-.top-nav ul li a:hover {
-  background-color: #ffd700;
-  color: #002c6f;
 }
 
 /* ===== Header ===== */
@@ -102,27 +103,6 @@ header {
   gap: 2vw;
 }
 
-/* ===== Navigation ===== */
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 3vw; /* Gap depends on viewport width */
-  padding: 0;
-  margin: 0;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-nav ul li a {
-  color: white;
-  font-size: 1.2em; 
-  padding: 0.6em 0em; 
-  border-radius: 0.5em;
-  border-bottom: 0.15em solid #ffd700;
-  box-shadow: 0 0.375em 1.125em rgba(0, 70, 171, 0.15);
-  transition: background-color 0.3s, color 0.3s;
-}
-
 /* 🎯 Mobile fix */
 @media (max-width: 600px) {
   nav ul li a {
@@ -135,11 +115,6 @@ nav ul li a {
   nav ul {
     gap: 1em;
   }
-}
-
-nav ul li a:hover {
-  background-color: #ffd700;
-  color: #0047ab;
 }
 
 /* ===== Main Content ===== */
